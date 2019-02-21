@@ -1,0 +1,16 @@
+{
+    "name": "work",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "devDependencies": {
+        "gulp": "^4.0.0",
+        "gulp-stylus": "^2.7.0",
+        "gulp-autoprefixer": "^6.0.0",
+        "gulp-remember": "^1.0.1",
+        "gulp-concat": "^2.6.1",
+        "browser-sync": "^2.26.3"
+    },
+    "author": "lunpully.com",
+    "license": "ISC"
+}

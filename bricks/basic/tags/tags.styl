@@ -1,0 +1,220 @@
+/*#################### Офомление базовых стилей ####################*/
+
+html
+    width: 100%
+    display: block
+    height: 100%
+    font-family: fontMain;
+
+body
+    height: 100%
+    font-size: font-nr
+    color: text-main
+    line-height: 1.3em
+    text-align: left;
+    position: relative;
+    min-width: 320px
+
+
+*
+    box-sizing: border-box;
+
+.fontAddit
+    font-family: fontAddit
+
+/* Использовать только одиночные теги
+в редких случаях допускается использовать классы,
+только для стилизации стандартных элементов через скрипты */
+
+a
+    text-decoration: none
+    color: clr-primary
+    border-bottom: 1px dashed clr-primary
+    a()
+hr
+    border: none
+    margin-top: 14px
+    margin-bottom: 5px
+p
+    margin: 0
+    margin-bottom: 20px
+    &:last-child
+        margin-bottom: 0
+ul
+    margin: 20px 0
+    padding: 0 0 0 8px
+    list-style: none
+    line-height: 1.5em
+    li
+        position: relative
+        list-style: none
+        &:after
+            content: ' '
+            width: 4px
+            height: 4px
+            position: absolute
+            top: 10px
+            left: -8px
+            border-radius: 10px
+
+h1
+h2
+h3
+    text-align: left
+    font-weight: bold
+    margin-bottom: 20px;
+    line-height: 1.3em
+    &:first-child
+        margin-top: 0
+    em
+        text-decoration: underline
+h1
+    margin-bottom: 40px
+    margin-top: 20px
+    + h2
+        margin-top: 0
+h2
+    margin-bottom: 25px
+    margin-top 49px
+
+table
+    width: 100%
+    margin-bottom: 35px
+    margin-top: 58px
+    line-height: 1.6em
+    border-collapse: separate
+    border-left: 1px solid #b7b8b9;
+    border-right: 1px solid #b7b8b9;
+    border-bottom: 1px solid #b7b8b9;
+    td
+    th
+        padding: 0 24px 2px
+        letter-spacing: 0.1px
+        text-align: left
+        border-top: 1px solid #b7b8b9;
+        vertical-align: top
+    th
+        font-weight: bold
+        background: #b7b8b9
+        padding:5px 23px 0
+        letter-spacing: 0.7px
+        border-top: 5px solid #fff
+        border-bottom: 7px solid #fff
+    tr.th
+        + tr
+            td
+            th
+                border-top: none
+    tr:first-child
+        th
+            border-top: 0
+
+/*----------  Поля формы  ----------*/
+buttonPadding = 10px
+
+label
+    display: inline-block
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="email"]
+    input_text()
+    line-height: 1.3em
+    //line-height: (51px - input-borderWidth * 2 - input-padding[0] * 2)
+    &[disabled="true"]
+        color: text-muted
+    + input
+    + textarea
+        margin-top: 10px
+textarea
+    input_text()
+    line-height: 1.45em
+    + input
+    + textarea
+        margin-top: 10px
+
+select
+    input_text()
+    color: text-placeholder
+    padding-left: input-padding[1]
+
+
+[type="checkbox"]
+    width: 20px
+    height: @width
+    position: relative
+    z-index: 100;
+    border-radius: bd-radius_nr
+    border: 2px solid bd-input
+    cursor: pointer;
+
+[type="radio"]
+    width: 20px
+    height: @width
+    position: relative
+    z-index: 100;
+    border-radius: 100px;
+    border: 2px solid bd-input
+    cursor: pointer;
+
+.{$px}Check
+    width: 20px
+    height: @width
+    position: relative
+    display: inline-block
+    &-box
+        @extend [type="checkbox"]
+        display: inline-block
+        position: absolute
+        left: 0;
+        top: 0
+        z-index: 1
+        &_checked
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAALCAYAAABPhbxiAAABCklEQVQoU53SMUvDUBQF4HO00lH/h7/gZbDpGhLplEHESUUQhE6CRY2ixUkUBEFQxEHnvkw6vFfBJFv/SAfdqg5eSaBFq0Lrne6F8w0HLvHP4bguNmkTE3geC2qbHABsCOV4ZKjb6R4EOwBO5qtOfSQY22xXIBGBU99VdZJSQGttqVsuT4WO0xvu3Gqn2xTsEzjzXbWRozxTwNhmdwKZKfVeap7nvfWxNtkWKIcQOQ+qznofDaA2WQjKLYCH1+50LQxn37VNNgEegbgIKmrtKxrAfNEmXQBxA/JeIE8UNAFcBq5aGUbfYH60bLJI8BrAJIkrv6KWf0M/YNHXpEtCzHUe1WoU8eOvB/kEPzpdfbdXX0AAAAAASUVORK5CYII=") center center no-repeat;
+
+.{$px}Radio
+    width: 20px
+    height: @width
+    position: relative
+    display: inline-block
+    &-box
+        @extend [type="radio"]
+        display: inline-block
+        position: absolute
+        left: 0;
+        top: 0
+        z-index: 1
+        &_checked
+            &:after
+                content: ''
+                position: absolute
+                top: 50%
+                left: 50%
+                display: block
+                width: 4px
+                height: @width
+                margin-left: -(@width / 2)
+                margin-top: -(@height / 2)
+                background: #ccc
+                border-radius:  100px
+                overflow: hidden
+                box-shadow: 0 0 0.3px 1px @background
+
+.{$px}link
+    color: clr-primary
+    a()
+    button&
+        border: none
+        background: none
+    &_dk
+        color: text-main
+        a()
+    &_text
+        @extend {e(_dk)}
+        border-bottom: none !important
+    &_muted
+        color: text-placeholder
+        a()
+    &_dotted
+        border-bottom-style: dotted !important
+

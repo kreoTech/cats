@@ -1,0 +1,75 @@
+/*-----------  Строки  -----------*/
+.{$px}row
+    width: 100%
+    clearfix()
+    display: flex
+    justify-content: space-between
+    &-block
+        display: block
+        flex-grow: 1
+        width: 100%
+        &_awayNext
+            padding-right: 70px
+            +m('tablet')
+                padding-right: 0
+
+        &_media
+            max-width: 50%
+            iframe
+                width: 100%
+        & + &
+            margin-left: 20px
+        &_fixed
+            flex-grow: 0
+    &-left
+        display: block
+        min-width: 0
+        flex-shrink: 0
+    &_col
+        {e(-block)} + {e(-block)}
+            margin-left: 30px
+    &_verticalCenter
+        align-items: center
+    &_alignCenter
+        justify-content: center
+
+    +m('tablet')
+        display: block
+        &-block
+            + {e(-block)}
+                margin-top: 20px
+                margin-left: 0
+            &_media
+                max-width: 100%
+
+    &_responsive
+        flex-wrap: wrap
+        justify-content: center
+        +e(-block)
+            width: auto
+        +m('tablet')
+            flex-wrap: wrap
+            text-align: center
+            +e(-block)
+                display: inline-block
+                width: auto
+                text-align: left
+                min-width: 200px
+                margin-top: 0px
+                margin-bottom: 10px
+                margin-right: 20px
+
+    &_slider
+        +m('tablet')
+            display: flex
+            +e(-block)
+                img
+                    max-width: 100%
+                &_awayNext
+                    padding-right: 70px
+        +m(600px)
+            +e(-block)
+                &_awayNext
+                    padding-right: 0px
+
+

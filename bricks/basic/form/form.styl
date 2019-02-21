@@ -1,0 +1,186 @@
+/*-----------  Формы  -----------*/
+.{$px}form
+    display: block
+    width: 100%
+    margin-top: 39px
+
+    &-input
+        width: 100%
+        max-width: 572px
+        height: 56px !important
+        box-sizing: border-box
+        padding: 20px 35px !important
+        border-radius: 28px;
+        border: 1px solid #777777 !important;
+        font-size: font-mdm;
+    &-textarea
+        width: 100%
+        max-width: 572px
+        height: 127px !important
+        box-sizing: border-box
+        padding: 15px 35px !important
+        border-radius: 28px;
+        border: 1px solid #777777 !important;
+        font-size: font-mdm;
+
+    &-btn
+        margin-top: 42px
+        min-width: 250px
+        letter-spacing: 0.5px
+        font-size: font-nrm;
+
+    &-label
+        display: block
+        color: text-muted
+        font-size: font-sm;
+        margin-bottom: 8px
+        &Link
+            border-bottom-style: dotted
+            padding-right: 5px
+            margin-left: 6px
+
+    &-send
+        border: none;
+        +m('desktop')
+            &:hover
+                visibility: visible
+    &-group
+        input[type="text"],
+        input[type="file"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="url"],
+        textarea,
+        select
+            width: 100%
+            //padding-left: 10px
+            //padding-right: 10px
+        &_center
+            text-align: center
+        & + &
+            margin-top: 41px
+
+::-webkit-input-placeholder
+    color: #8b8b8b;
+    font-weight: 300;
+    font-size: font-mdm;
+    line-height: font-lg;
+
+::-moz-placeholder
+    color: #8b8b8b;
+    font-weight: 300;
+    font-size: font-mdm;
+    line-height: font-lg;
+    
+:-moz-placeholder
+    color: #8b8b8b;
+    font-weight: 300;
+    font-size: font-mdm;
+    line-height: font-lg;
+
+:-ms-input-placeholder
+    color: #8b8b8b;
+    font-weight: 300;
+    font-size: font-mdm;
+    line-height: font-lg;
+
+/*-----------  Группировка  -----------*/
+.{$px}group
+    position: relative
+    clearfix()
+    &_input
+        input_text()
+        padding: 0
+        > textarea
+        > input[type="text"]
+        > input[type="password"]
+        > input[type="tel"]
+        > input[type="email"]
+            height: input-height
+            min-height: @height
+            border: none
+            padding: input-padding
+
+        &_lg
+            height: auto
+            min-height: (input-height + 10px)
+            > textarea
+            > input[type="text"]
+            > input[type="password"]
+            > input[type="tel"]
+            > input[type="email"]
+                padding: 0
+                padding-top: (input-padding[0]+5px)
+                padding-bottom: (@padding-top - 7px)
+                border: none
+                height: auto
+                min-height: (@min-height - input-borderWidth[0]*2 - 8px)
+    &_input_info
+        @extend {e( _input)}
+        +x(-info)
+            position: absolute
+            top: 100%
+            right: 0
+    &_input_before
+    &_input_beforeAfter
+        display: block
+        margin-left: 30px
+        @extend {e(_input)}
+        +e(-before)
+            width: 30px
+            left: -30px
+            + textarea
+            + input[type="text"]
+            + input[type="password"]
+            + input[type="tel"]
+            + input[type="email"]
+                padding-left: input-padding[1];
+                width: 100%;
+
+    &_input_after
+    &_input_beforeAfter
+        @extend {e(_input)}
+        visibility: visible
+
+    &_input_label
+        @extend {e(_input)}
+        border-radius: bd-radius_nr 0 bd-radius_nr bd-radius_nr
+    &-info
+        white-space: nowrap
+        background: bd-input
+        border-radius: 0 0 3px 3px
+        color: text-muted
+        font-size: font-xs
+        line-height: 1.2em
+        padding: 3px 10px 2px
+
+    &-label
+        border-radius: bd-radius_nr bd-radius_nr 0 0
+        position: absolute
+        height: 19px
+        line-height: @height
+        right: (- input-borderWidth)
+        top: (- @height)
+        background: bd-input
+        color: text-placeholder
+        font-size: font-xs
+        min-width: 33px
+        padding: 0 5px
+        text-align: center
+    &-before
+        height: 20px
+        position: absolute
+        left: 0
+        bottom: 12px
+        color: clr-dk;
+        font-size: font-mdm;
+        font-weight: 300;
+        line-height: 24px;
+    &-after
+        position: absolute
+        right: 0
+        bottom: 10px;
+    &-btn
+        & + &
+            margin-top: 10px

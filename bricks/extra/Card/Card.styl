@@ -1,0 +1,188 @@
+//options
+margHorizontal = 6.5%
+margVertical = 3%
+
+.{$px}Cards
+    display: flex
+    flex-wrap: wrap
+    //justify-content: space-between
+    justify-content: center
+    margin-left: - margHorizontal
+    +m('tablet')
+        justify-content: center
+    +m('phone')
+        margin-left: 0
+
+    +b(Card)
+        width: (33% - margHorizontal)
+        width: 320px
+        margin: 0px 0 margVertical margHorizontal
+
+        +m('tablet')
+            width: 320px
+        +m('phone')
+            width: auto
+            margin-left: 0
+            margin-right: 0
+        + {b(Card)}
+            +m('phone')
+                margin-top: 15px
+
+    &-ins
+        display: flex
+        justify-content: center
+        flex-wrap: wrap
+        margin-left: -20px
+        margin-top: 41px
+        +m('phone')
+            margin-left: 0
+        +b(Card)
+            width: 22%
+            +m('tablet')
+                width: 40%
+            +m('phone')
+                width: auto
+                margin-left: 0
+                margin-right: 0
+
+grad(clr-o, clr, step = 30px)
+    background: linear-gradient( \
+        -225deg, \
+        clr-o step, \
+        clr step, \
+        clr 100% )
+
+.{$px}Card
+    text-align: center
+    clearfix()
+    padding: 0
+    overflow: hidden
+    display: flex
+    position: relative
+    a
+        color: clr-primary
+    &-check
+        display: none
+        &:checked + {e(-label)}
+            +e(-bg)
+                grad(rgba(clr-danger, 0), rgba(clr-danger, 1))
+            +e(-weight)
+                background: clr-danger
+            &:hover
+                +e(-bg)
+                    grad(rgba(clr-danger_lt, 0), rgba(clr-danger_lt, 1))
+                +e(-weight)
+                    background: clr-danger_lt
+        &[disabled='disabled'] + {e(-label)}
+            +e(-bg)
+                grad(rgba(#b3b3b3, 0), rgba(#b3b3b3, 1))
+            +e(-content)
+                color: #d3d3d3
+            +e(-slogan)
+                color: #d3d3d3
+            +e(-description)
+                color: #d3d3d3
+            +e(-picture)
+                opacity: 0.5
+            +e(-weight)
+                background: #b3b3b3
+            +e(-caption)
+                color: #ffff66;
+
+
+    &-label
+        display: block
+        width: 100%
+        &:hover
+            +e(-bg)
+                grad(rgba(clr-primary_lt, 0), rgba(clr-primary_lt, 1))
+            +e(-weight)
+                background: clr-primary_lt
+    &-content
+        padding: 0 10px 0
+        justify-content: center
+        align-items: center
+        text-align: left
+        width: 100%
+        left: 0
+        top: 0
+        right: 0
+        bottom: 0
+        transition: all 300ms
+    &-bg
+        padding: 4px
+        height: 480px
+        border-radius: 10px
+        grad(rgba(clr-primary, 0), rgba(clr-primary, 1))
+        cursor: pointer
+        &Ins
+            height: 100%
+            border-radius: 8px
+            padding: 16px 26px 273px 35px
+            grad(rgba(#f2f2f2, 0), rgba(#f2f2f2, 1), 28px)
+            position: relative
+
+
+    &-picture
+        overflow: hidden
+        display: block
+        line-height: 0
+        position: absolute
+        left: 0
+        bottom: 0
+        width: 254px
+        img
+            width: 100%
+            margin: 0
+    &-caption
+        color: clr-white
+        text-shadow: 0 1px 0 clr-black;
+        font-size: font-sm;
+        margin-top: 12px
+
+    &-slogan
+        color: clr-muted;
+        font-size: font-nr;
+    &-title
+        display: block
+        margin: 0
+        font-size: font-xl;
+        font-weight: 700;
+        position: relative
+        left: -2px
+    &-subTitle
+        font-size: font-md;
+        font-weight: 700;
+        display: block
+        margin-bottom: 20px
+    &-description
+        margin-top: 5px
+        margin-bottom: 17px
+        color: clr-muted;
+        font-size: font-nrm;
+        line-height: 1.2em
+    &-weight
+        position: absolute
+        right: 11px
+        bottom: 11px
+        width: 81px
+        height: 81px
+        border-radius: 1000px
+        background: clr-primary
+        font-size: font-mdm
+        color: clr-white
+        display: flex
+        align-items: center
+        justify-content: center
+        strong
+            display: block
+            font-size: font-lg
+            text-align: center
+            font-weight: normal
+            line-height: 1em
+        span
+            display: block
+            text-align: center
+            line-height: 1em
+
+

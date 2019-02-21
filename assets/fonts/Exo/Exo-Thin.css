@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Exo 2.0 Thin";
+    src: url("Exo-Thin.eot"); /* IE9 */
+    src: url("Exo-Thin.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("Exo-Thin.woff") format("woff"), /* chrome, firefox */
+    url("Exo-Thin.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("Exo-Thin.svg#Exo 2.0 Thin") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+
